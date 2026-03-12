@@ -57,6 +57,10 @@ if [[ ! -d "$BLOCK_SPARSE_DIR/.git" ]]; then
 fi
 cd "$BLOCK_SPARSE_DIR"
 pip install packaging ninja
+
+# Limit CUDA architectures to avoid unsupported 'compute_120' on older toolkits.
+# Adjust this list if you know your exact GPU arch.
+export TORCH_CUDA_ARCH_LIST="8.0;9.0"
 python setup.py install
 # If you hit OOM during build, try: MAX_JOBS=1 python setup.py install
 cd "$REPO_DIR"
