@@ -32,8 +32,9 @@ pip install --upgrade pip
 pip install "setuptools<82" wheel
 
 echo "[3/5] Installing FlashVSR requirements (PyTorch/CUDA - may take a while)..."
-# Official repo uses torch+cu124 etc. from requirements.txt; adjust if your CUDA differs.
-pip install -r requirements.txt
+# CUDA 12.4 wheels live on PyTorch's own index; adjust the URL if your CUDA version differs.
+TORCH_INDEX="https://download.pytorch.org/whl/cu124"
+pip install -r requirements.txt --extra-index-url "$TORCH_INDEX"
 pip install --no-build-isolation -e .
 
 echo "[4/5] Installing Block-Sparse-Attention (required; build can be memory-intensive)..."
