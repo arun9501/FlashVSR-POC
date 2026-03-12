@@ -24,8 +24,8 @@ cd "$REPO_DIR"
 # Optional: pin to a specific commit for reproducibility
 # git checkout <commit>
 
-echo "[2/5] Creating Python 3.11 venv in FlashVSR repo..."
-python3.11 -m venv .venv
+echo "[2/5] Creating Python 3 venv in FlashVSR repo..."
+python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 

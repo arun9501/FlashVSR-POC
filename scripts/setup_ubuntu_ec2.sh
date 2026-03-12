@@ -9,10 +9,10 @@ set -euo pipefail
 echo "[1/5] Updating apt..."
 sudo apt-get update -qq
 
-echo "[2/5] Installing Python 3.11, venv, and build tools..."
+echo "[2/5] Installing Python 3, venv, and build tools..."
 sudo apt-get install -y \
-  python3.11 \
-  python3.11-venv \
+  python3 \
+  python3-venv \
   python3-pip \
   build-essential \
   git \

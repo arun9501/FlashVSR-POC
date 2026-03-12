@@ -32,7 +32,7 @@ echo "FlashVSR repo:   $REPO_PATH"
 echo "=============================================="
 
 echo ""
-echo "[1/4] System dependencies (Ubuntu: python3.11, ffmpeg, git-lfs)..."
+echo "[1/4] System dependencies (Ubuntu: python3, ffmpeg, git-lfs)..."
 bash scripts/setup_ubuntu_ec2.sh
 
 echo ""
