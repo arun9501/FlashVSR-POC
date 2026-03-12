@@ -37,6 +37,7 @@ echo "[3/5] Installing FlashVSR requirements (PyTorch/CUDA - may take a while)..
 TORCH_INDEX="https://download.pytorch.org/whl/cu121"
 
 # Rewrite requirements.txt pins from +cu124 → +cu121 to match the installed CUDA driver.
+sed -i 's/torch==2\.6\.0+cu124/torch==2.5.1+cu121/g' requirements.txt
 sed -i 's/+cu124/+cu121/g' requirements.txt
 
 pip install -r requirements.txt --extra-index-url "$TORCH_INDEX"
