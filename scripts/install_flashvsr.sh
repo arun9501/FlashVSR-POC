@@ -32,8 +32,13 @@ pip install --upgrade pip
 pip install "setuptools<82" wheel
 
 echo "[3/5] Installing FlashVSR requirements (PyTorch/CUDA - may take a while)..."
-# CUDA 12.4 wheels live on PyTorch's own index; adjust the URL if your CUDA version differs.
-TORCH_INDEX="https://download.pytorch.org/whl/cu124"
+# CUDA 12.1 wheels are forward-compatible with CUDA 12.2.
+# Change to cu124 for CUDA >=12.4, cu118 for CUDA 11.8, etc.
+TORCH_INDEX="https://download.pytorch.org/whl/cu121"
+
+# Rewrite requirements.txt pins from +cu124 → +cu121 to match the installed CUDA driver.
+sed -i 's/+cu124/+cu121/g' requirements.txt
+
 pip install -r requirements.txt --extra-index-url "$TORCH_INDEX"
 pip install --no-build-isolation -e .
 
