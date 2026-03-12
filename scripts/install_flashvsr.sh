@@ -28,6 +28,8 @@ echo "[2/5] Creating Python 3 venv in FlashVSR repo..."
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
+# Ensure setuptools (provides pkg_resources) is available for editable installs
+pip install --upgrade setuptools
 
 echo "[3/5] Installing FlashVSR requirements (PyTorch/CUDA - may take a while)..."
 # Official repo uses torch+cu124 etc. from requirements.txt; adjust if your CUDA differs.
